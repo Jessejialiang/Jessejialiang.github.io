@@ -18,7 +18,7 @@
 <meta property="og:description" content="1.HTTP和HTTPS的区别1、https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。 2、http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。 3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。 4、http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-21T18:49:56.000Z">
-<meta property="article:modified_time" content="2020-05-21T19:42:38.939Z">
+<meta property="article:modified_time" content="2020-05-24T17:39:23.409Z">
 <meta property="article:author" content="jesseLeung">
 <meta name="twitter:card" content="summary">
   
@@ -252,6 +252,8 @@
 <h2 id="2-tcp三次握手，一句话概括"><a href="#2-tcp三次握手，一句话概括" class="headerlink" title="2.tcp三次握手，一句话概括"></a>2.tcp三次握手，一句话概括</h2><p>1 客户端发送 syn 包</p>
 <p>2 服务端响应，发送 ack 包</p>
 <p>3 客户端再次发送 ack 确认包</p>
+<a id="more"></a>
+
 <h2 id="3-TCP和UDP的区别"><a href="#3-TCP和UDP的区别" class="headerlink" title="3.TCP和UDP的区别"></a>3.TCP和UDP的区别</h2><p>TCP（Transmission Control Protocol，传输控制协议）提供的是面向连接，可靠的字节流服务。即客户和服务器交换数据前，必须现在双方之间建立一个TCP连接，之后才能传输数据。并且提供超时重发，丢弃重复数据，检验数据，流量控制等功能，保证数据能从一端传到另一端。</p>
 <p>UDP（User Data Protocol，用户数据报协议）是一个简单的面向数据报的运输层协议。它不提供可靠性，只是把应用程序传给IP层的数据报发送出去，但是不能保证它们能到达目的地。由于UDP在传输数据报前不用再客户和服务器之间建立一个连接，且没有超时重发等机制，所以传输速度很快。</p>
 <h2 id="4-WebSocket的实现和应用"><a href="#4-WebSocket的实现和应用" class="headerlink" title="4.WebSocket的实现和应用"></a>4.WebSocket的实现和应用</h2><p>这里使用的是w3c规范中关于<a href="http://dev.w3.org/html5/websockets/" target="_blank" rel="noopener">HTML5 websocket API</a>的原生API，这些api很简单，就是利用new WebSocket创建一个指定连接服务端地址的ws实例，然后为该实例注册onopen(连接服务端),onmessage(接受服务端数据)，onclose(关闭连接)以及ws.send(建立连接后)发送请求。上面说了那么多，事实上可以看到html5 websocket API本身是很简单的一个对象和它的几个方法而已。</p>

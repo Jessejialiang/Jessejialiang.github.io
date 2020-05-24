@@ -195,6 +195,80 @@
             
 
   
+    <article id="post-new-的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/05/25/new-%E7%9A%84%E5%AE%9E%E7%8E%B0/" target="_blank">new 的实现</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/05/25/new-%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+        <time datetime="2020-05-24T17:41:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/05/25/new-%E7%9A%84%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-函数防抖，函数节流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -230,17 +304,9 @@
 
 <p>定时方案：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aab</span>(<span class="params">fn,wait</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer =<span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> content = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">var</span> args = [...arguments];</span><br><span class="line">        <span class="keyword">if</span>(!timer)&#123;</span><br><span class="line">            timer =setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                fn.apply(content,args)</span><br><span class="line">                timer = <span class="literal">null</span></span><br><span class="line">            &#125;,wait) </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h2><h3 id="原理是如果触发N秒后执行回调，如果再这N秒里再次触发，则重新执行N秒"><a href="#原理是如果触发N秒后执行回调，如果再这N秒里再次触发，则重新执行N秒" class="headerlink" title="原理是如果触发N秒后执行回调，如果再这N秒里再次触发，则重新执行N秒"></a>原理是如果触发N秒后执行回调，如果再这N秒里再次触发，则重新执行N秒</h3><p>定时器方案</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debance</span>(<span class="params">fn,wait</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer= <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">let</span> content = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">let</span> args = [...arguments];</span><br><span class="line">        <span class="keyword">if</span>(timer)&#123;</span><br><span class="line">           clearTimeout(timer) </span><br><span class="line">        &#125;</span><br><span class="line">        timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            fn.apply(content,args)</span><br><span class="line">            timer = <span class="literal">null</span></span><br><span class="line">        &#125;,wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
+    
+    <a class="article-more-a" href="/2020/05/25/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%EF%BC%8C%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/#more">more >></a>
+    
     
 
     
@@ -720,20 +786,9 @@
 <h2 id="2-tcp三次握手，一句话概括"><a href="#2-tcp三次握手，一句话概括" class="headerlink" title="2.tcp三次握手，一句话概括"></a>2.tcp三次握手，一句话概括</h2><p>1 客户端发送 syn 包</p>
 <p>2 服务端响应，发送 ack 包</p>
 <p>3 客户端再次发送 ack 确认包</p>
-<h2 id="3-TCP和UDP的区别"><a href="#3-TCP和UDP的区别" class="headerlink" title="3.TCP和UDP的区别"></a>3.TCP和UDP的区别</h2><p>TCP（Transmission Control Protocol，传输控制协议）提供的是面向连接，可靠的字节流服务。即客户和服务器交换数据前，必须现在双方之间建立一个TCP连接，之后才能传输数据。并且提供超时重发，丢弃重复数据，检验数据，流量控制等功能，保证数据能从一端传到另一端。</p>
-<p>UDP（User Data Protocol，用户数据报协议）是一个简单的面向数据报的运输层协议。它不提供可靠性，只是把应用程序传给IP层的数据报发送出去，但是不能保证它们能到达目的地。由于UDP在传输数据报前不用再客户和服务器之间建立一个连接，且没有超时重发等机制，所以传输速度很快。</p>
-<h2 id="4-WebSocket的实现和应用"><a href="#4-WebSocket的实现和应用" class="headerlink" title="4.WebSocket的实现和应用"></a>4.WebSocket的实现和应用</h2><p>这里使用的是w3c规范中关于<a href="http://dev.w3.org/html5/websockets/" target="_blank" rel="noopener">HTML5 websocket API</a>的原生API，这些api很简单，就是利用new WebSocket创建一个指定连接服务端地址的ws实例，然后为该实例注册onopen(连接服务端),onmessage(接受服务端数据)，onclose(关闭连接)以及ws.send(建立连接后)发送请求。上面说了那么多，事实上可以看到html5 websocket API本身是很简单的一个对象和它的几个方法而已。</p>
-<h2 id="5-一个图片url访问后直接下载怎样实现？"><a href="#5-一个图片url访问后直接下载怎样实现？" class="headerlink" title="5.一个图片url访问后直接下载怎样实现？"></a>5.一个图片url访问后直接下载怎样实现？</h2><p>1.设置response header中的disposition-type为attachment</p>
-<p>Content-disposition 是 MIME 协议的扩展，MIME 协议指示 MIME 用户代理如何显示附加的文件。当 Internet Explorer 接收到头时，它会激活<strong>文件下载</strong>对话框，它的文件名框自动填充了头中指定的文件名。（请注意，这是设计导致的；无法使用此功能将文档保存到用户的计算机上，而不向用户询问保存位置。）   </p>
-<p>​        服务端向客户端游览器发送文件时，如果是浏览器支持的文件类型，一般会默认使用浏览器打开，比如txt、jpg等，会直接在浏览器中显示，如果需要提示用户保存，就要利用Content-Disposition进行一下处理，关键在于一定要加上attachment：</p>
-<p>2.通过<a>链接来实现图片下载download</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"girl.jpg"</span> <span class="attr">download</span>=<span class="string">"beautifulGirl"</span>&gt;</span></span><br><span class="line">   　　<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"girl.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
+    
+    <a class="article-more-a" href="/2020/05/22/http,http2,%E6%B8%B8%E8%A7%88%E5%99%A8/#more">more >></a>
+    
     
 
     

@@ -195,6 +195,320 @@
             
 
   
+    <article id="post-手撕call,apply,bind" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/05/24/%E6%89%8B%E6%92%95call,apply,bind/" target="_blank">手撕call,apply,bind</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/05/24/%E6%89%8B%E6%92%95call,apply,bind/" class="archive-article-date">
+        <time datetime="2020-05-24T06:42:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="手撕call-apply-bind"><a href="#手撕call-apply-bind" class="headerlink" title="手撕call,apply,bind"></a>手撕call,apply,bind</h1><p>直接上代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myCall=<span class="function"><span class="keyword">function</span>(<span class="params">content</span>)</span>&#123;</span><br><span class="line">     content = content||<span class="built_in">window</span>;</span><br><span class="line">    <span class="keyword">var</span> args = [...arguments].slice(<span class="number">1</span>);</span><br><span class="line">    content.fn = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">var</span> result =content.fn(...args);</span><br><span class="line">    <span class="keyword">delete</span> content.fn;</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h4><p>1.首先content是可选参数，content为空时默认为window;</p>
+<p>2.this代表我们所要执行的函数，怎么把代指对象转移？</p>
+<p>就是通过content.fn=this,再执行content。fn()的过程</p>
+<p>最后删除content.fn</p>
+<h3 id="apply同理"><a href="#apply同理" class="headerlink" title="apply同理"></a>apply同理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myApply = <span class="function"><span class="keyword">function</span>(<span class="params">content</span>)</span>&#123;</span><br><span class="line">     content = content||<span class="built_in">window</span>;</span><br><span class="line">    content.fn = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">let</span> result</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">arguments</span>[<span class="number">1</span>])&#123;</span><br><span class="line">       result = content.fn(...arguments[<span class="number">1</span>])</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      result  = content.fn()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">delete</span> content.fn</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="bind不同"><a href="#bind不同" class="headerlink" title="bind不同"></a>bind不同</h3><p>bind有两种方式：</p>
+<p>第一种：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = fun.bind(b,<span class="number">12</span>)</span><br><span class="line">a(<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+
+<p>第二种：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b =fun.bind(<span class="number">123</span>)</span><br><span class="line"><span class="keyword">var</span> bb = <span class="keyword">new</span> b()</span><br></pre></td></tr></table></figure>
+
+<p>产生两种方法的原因是因为bind返回的是一个函数</p>
+<h3 id="new创建的对象，其指针会指向创建的对象"><a href="#new创建的对象，其指针会指向创建的对象" class="headerlink" title="new创建的对象，其指针会指向创建的对象"></a>new创建的对象，其指针会指向创建的对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.myBind = <span class="function"><span class="keyword">function</span>(<span class="params">content</span>)</span>&#123;</span><br><span class="line">    content = content||<span class="built_in">window</span>;</span><br><span class="line">    <span class="keyword">const</span> fn = <span class="keyword">this</span>;</span><br><span class="line">    args = [...arguments].slice(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span> <span class="keyword">instanceof</span> F)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> fn(...args,...arguments)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            fn.apply(content,args.concat(...arguments))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/05/24/%E6%89%8B%E6%92%95call,apply,bind/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-foo发的前端问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/05/22/foo%E5%8F%91%E7%9A%84%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/" target="_blank">foo发的前端问题</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/05/22/foo%E5%8F%91%E7%9A%84%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/" class="archive-article-date">
+        <time datetime="2020-05-22T11:25:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="new-foo-引发的问题"><a href="#new-foo-引发的问题" class="headerlink" title="new foo()引发的问题"></a>new foo()引发的问题</h1><p>遇到了一个很奇怪的面经题，整理下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo.getName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line">foo.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">5</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">foo.getName();</span><br><span class="line">getName()</span><br><span class="line">foo.getName();</span><br><span class="line">getName()</span><br><span class="line"><span class="keyword">new</span> foo.getName();</span><br><span class="line"><span class="keyword">new</span> foo().getName();</span><br><span class="line"><span class="keyword">new</span> <span class="keyword">new</span> foo().getName()</span><br></pre></td></tr></table></figure>
+
+<p>一开始看到头都大</p>
+<p>一步一步分析把！</p>
+<h2 id="首先搞清楚声明变量提前和函数变量提前"><a href="#首先搞清楚声明变量提前和函数变量提前" class="headerlink" title="首先搞清楚声明变量提前和函数变量提前"></a>首先搞清楚声明变量提前和函数变量提前</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(foo)</span><br></pre></td></tr></table></figure>
+
+<p>转化：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> foo;</span><br><span class="line">foo=<span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数声明提前比变量声明提前还要提前"><a href="#函数声明提前比变量声明提前还要提前" class="headerlink" title="函数声明提前比变量声明提前还要提前"></a>函数声明提前比变量声明提前还要提前</h3><p>函数声明提升在前，变量声明提升在后</p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo.getName()<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<p>这个2就是foo.getName = function (){}的值。</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getName()<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<p>因为函数声明提前比变量声明还要前，所以最后getName()输出为2</p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo().getName()<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<p>注意，当执行foo()时，里面的变量getName被提升到全局变量，所以全局变量重新赋值</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getName()<span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<p>上面导致全局变量重新赋值为foo()里的变量</p>
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> foo.getName()<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+
+<p>这里要把foo.getName看作一个整体所以相当于</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = foo.getName;</span><br><span class="line"><span class="keyword">new</span> a(）</span><br></pre></td></tr></table></figure>
+
+<p>所以输出为2</p>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> foo().getName()<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>一样的道理，把new 和（）中间看作整体，就像HTML两头标签一样</p>
+<p>涉及到一个小知识点：return this；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一般我们return this时返回一个对象，这个对象又可以接它的函数，然后这个函数又可以返回一个对象，最后形成我们常见的链式；</p>
+<p>当我们foo实例化后即我们new foo时，创造的实例可以在原型链上读取数据，如果想继承构造函数的方法，可以采用call方法</p>
+<h2 id="7"><a href="#7" class="headerlink" title="7"></a>7</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="keyword">new</span> foo().getName()<span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>原理和上面的一样，采用把new和（）看成一对的双头标签，可以等处new xxx.getName()<br>最后得出3</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/05/22/foo%E5%8F%91%E7%9A%84%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-http,http2,游览器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/05/22/http,http2,%E6%B8%B8%E8%A7%88%E5%99%A8/" target="_blank">http,http2,游览器</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/05/22/http,http2,%E6%B8%B8%E8%A7%88%E5%99%A8/" class="archive-article-date">
+        <time datetime="2020-05-21T18:49:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="1-HTTP和HTTPS的区别"><a href="#1-HTTP和HTTPS的区别" class="headerlink" title="1.HTTP和HTTPS的区别"></a>1.HTTP和HTTPS的区别</h2><p>1、https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。</p>
+<p>2、http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。</p>
+<p>3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</p>
+<p>4、http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全</p>
+<h2 id="2-tcp三次握手，一句话概括"><a href="#2-tcp三次握手，一句话概括" class="headerlink" title="2.tcp三次握手，一句话概括"></a>2.tcp三次握手，一句话概括</h2><p>1 客户端发送 syn 包</p>
+<p>2 服务端响应，发送 ack 包</p>
+<p>3 客户端再次发送 ack 确认包</p>
+    
+    <a class="article-more-a" href="/2020/05/22/http,http2,%E6%B8%B8%E8%A7%88%E5%99%A8/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/05/22/http,http2,%E6%B8%B8%E8%A7%88%E5%99%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

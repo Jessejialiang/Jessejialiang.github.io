@@ -10,13 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="article">
+  <meta name="description" content="深度拷贝1.json.stringify和json.parse123function deepCopy(obj)&amp;#123;    return JSON.parse(JSON.stringify(obj))&amp;#125;    2.递归拷贝12345678910111213141516171819202122function isType(obj)&amp;#123;    return Object.p">
+<meta property="og:type" content="article">
 <meta property="og:title" content="深度拷贝">
 <meta property="og:url" content="http://jesseleung.top/2020/05/25/%E6%B7%B1%E5%BA%A6%E6%8B%B7%E8%B4%9D/index.html">
 <meta property="og:site_name" content="jesseLeung个人博客">
+<meta property="og:description" content="深度拷贝1.json.stringify和json.parse123function deepCopy(obj)&amp;#123;    return JSON.parse(JSON.stringify(obj))&amp;#125;    2.递归拷贝12345678910111213141516171819202122function isType(obj)&amp;#123;    return Object.p">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-25T12:49:32.000Z">
-<meta property="article:modified_time" content="2020-05-25T12:49:32.085Z">
+<meta property="article:modified_time" content="2020-05-25T14:37:09.675Z">
 <meta property="article:author" content="jesseLeung">
 <meta name="twitter:card" content="summary">
   
@@ -223,7 +225,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">102字</span>
     </span>
   </span>
 
@@ -243,7 +245,13 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="深度拷贝"><a href="#深度拷贝" class="headerlink" title="深度拷贝"></a>深度拷贝</h1><h2 id="1-json-stringify和json-parse"><a href="#1-json-stringify和json-parse" class="headerlink" title="1.json.stringify和json.parse"></a>1.json.stringify和json.parse</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-递归拷贝"><a href="#2-递归拷贝" class="headerlink" title="2.递归拷贝"></a>2.递归拷贝</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isType</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).slice(<span class="number">8</span>,<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">obj,visited=[]</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> _obj = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span>(isType(obj)==<span class="string">'array'</span>||isType(obj)==<span class="string">'Object'</span>)&#123;</span><br><span class="line">        <span class="keyword">let</span> index = visited.indexOf(obj)</span><br><span class="line">        _obj = isType(obj)==<span class="string">'array'</span>?[]:&#123;&#125;;</span><br><span class="line">        <span class="keyword">if</span>(-index)&#123;</span><br><span class="line">            _obj = visited[index]</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            visited.push(obj)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> item <span class="keyword">in</span> obj)&#123;</span><br><span class="line">                _obj[item] = deepCopy(obj[item],visited)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    _obj = obj</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> _obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     
 
     

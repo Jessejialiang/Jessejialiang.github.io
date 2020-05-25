@@ -10,13 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="article">
+  <meta name="description" content="页面性能优化图片优化 不用图片。很多时候会使用到很多修饰类图片，其实这类修饰图片完全可以用 CSS 去代替。 对于移动端来说，屏幕宽度就那么点，完全没有必要去加载原图浪费带宽。一般图片都用 CDN 加载，可以计算出适配屏幕的宽度，然后去请求相应裁剪好的图片。 小图使用 base64 格式 将多个图标文件整合到一张图片中（雪碧图） 选择正确的图片格式： 对于能够显示 WebP 格式的浏览器尽量使用">
+<meta property="og:type" content="article">
 <meta property="og:title" content="性能优化">
 <meta property="og:url" content="http://jesseleung.top/2020/05/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="jesseLeung个人博客">
+<meta property="og:description" content="页面性能优化图片优化 不用图片。很多时候会使用到很多修饰类图片，其实这类修饰图片完全可以用 CSS 去代替。 对于移动端来说，屏幕宽度就那么点，完全没有必要去加载原图浪费带宽。一般图片都用 CDN 加载，可以计算出适配屏幕的宽度，然后去请求相应裁剪好的图片。 小图使用 base64 格式 将多个图标文件整合到一张图片中（雪碧图） 选择正确的图片格式： 对于能够显示 WebP 格式的浏览器尽量使用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-25T07:32:57.000Z">
-<meta property="article:modified_time" content="2020-05-25T07:32:57.708Z">
+<meta property="article:modified_time" content="2020-05-25T08:19:27.656Z">
 <meta property="article:author" content="jesseLeung">
 <meta name="twitter:card" content="summary">
   
@@ -223,7 +225,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">1.3k字</span>
     </span>
   </span>
 
@@ -232,7 +234,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -243,7 +245,46 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="页面性能优化"><a href="#页面性能优化" class="headerlink" title="页面性能优化"></a>页面性能优化</h1><h2 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h2><ol>
+<li>不用图片。很多时候会使用到很多修饰类图片，其实这类修饰图片完全可以用 CSS 去代替。</li>
+<li>对于移动端来说，屏幕宽度就那么点，完全没有必要去加载原图浪费带宽。一般图片都用 CDN 加载，可以计算出适配屏幕的宽度，然后去请求相应裁剪好的图片。</li>
+<li>小图使用 base64 格式</li>
+<li>将多个图标文件整合到一张图片中（雪碧图）</li>
+<li>选择正确的图片格式：<ul>
+<li>对于能够显示 WebP 格式的浏览器尽量使用 WebP 格式。因为 WebP 格式具有更好的图像数据压缩算法，能带来更小的图片体积，而且拥有肉眼识别无差异的图像质量，缺点就是兼容性并不好</li>
+<li>小图使用 PNG，其实对于大部分图标这类图片，完全可以使用 SVG 代替</li>
+<li>照片使用 JPEG</li>
+</ul>
+</li>
+</ol>
+<h2 id="DNS-预解析"><a href="#DNS-预解析" class="headerlink" title="DNS 预解析"></a>DNS 预解析</h2><p>DNS 解析也是需要时间的，可以通过预解析的方式来预先获得域名所对应的 IP。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;dns-prefetch&quot; href&#x3D;&quot;&#x2F;&#x2F;yuchengkai.cn&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>DNS 实现域名到IP的映射。通过域名访问站点，每次请求都要做DNS解析。目前每次DNS解析，通常在200ms以下。针对DNS解析耗时问题，一些浏览器通过DNS Prefetch 来提高访问的流畅性。<br>DNS Prefetch 是一种DNS 预解析技术，当浏览网页时，浏览器会在加载网页时对网页中的域名进行解析缓存，这样在单击当前网页中的连接时就无需进行DNS的解析，减少用户等待时间，提高用户体验。<br>目前支持 DNS Prefetch 的浏览器有 google chrome 和 firefox 3.5<br>如果要浏览器端对特定的域名进行解析，可以再页面中添加link标签实现。例如： </p>
+<link rel="dns-prefetch" href="http://img.jb51.net" /> 
+如果要控制浏览器端是否对域名进行预解析，可以通过Http header 的x-dns-prefetch-control 属性进行控制。 
+可惜目前支持上面标签的只有 google chrome 和 firefox3.5
+
+<a id="more"></a>
+
+<h2 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h2><p>所谓预加载，就是提前加载了图片。</p>
+<p>有时候会加载一些在当前页面没有用到的图片，是为了提前加载到缓存里，这样后面的页面就可以直接从缓存读取了。</p>
+<p>加载大图的时候，我们可以先显示模糊的缩略图，等到大图加载完了，再把缩略图替换掉，这样填补了图片加载期间的空白时间。</p>
+<p>image也有onload和onerror事件，分别是加载完后和加载失败时执行。</p>
+<h3 id="预加载会加重服务器的压力"><a href="#预加载会加重服务器的压力" class="headerlink" title="预加载会加重服务器的压力"></a>预加载会加重服务器的压力</h3><h2 id="预渲染"><a href="#预渲染" class="headerlink" title="预渲染"></a>预渲染</h2><p>可以通过预渲染将下载的文件预先在后台渲染，可以使用以下代码开启预渲染</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel&#x3D;&quot;prerender&quot; href&#x3D;&quot;http:&#x2F;&#x2F;example.com&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>预渲染虽然可以提高页面的加载速度，但是要确保该页面大概率会被用户在之后打开，否则就是白白浪费资源去渲染。</p>
+<p>Prerender SPA Plugin<br>prerender-spa-plugin 是一个 webpack 插件用于在单页应用中预渲染静态 html 内容。因此，该插件限定了你的单页应用必须使用 webpack 构建，且它是框架无关的，无论你是使用 React 或 Vue 甚至不使用框架，都能用来进行预渲染。</p>
+<p>prerender-spa-plugin 原理</p>
+<p>那么 prerender-spa-plugin 是如何做到将运行时的 html 打包到文件中的呢？原理很简单，就是在 webpack 构建阶段的最后，在本地启动一个 phantomjs，访问配置了预渲染的路由，再将 phantomjs 中渲染的页面输出到 html 文件中，并建立路由对应的目录。</p>
+<h2 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h2><p>懒加载就是将不关键的资源延后加载。</p>
+<p>懒加载的原理就是只加载自定义区域（通常是可视区域，但也可以是即将进入可视区域）内需要加载的东西。对于图片来说，先设置图片标签的 <code>src</code> 属性为一张占位图，将真实的图片资源放入一个自定义属性中，当进入自定义区域时，就将自定义属性替换为 <code>src</code> 属性，这样图片就会去下载资源，实现了图片懒加载。</p>
+<p>懒加载不仅可以用于图片，也可以使用在别的资源上。比如进入可视区域才开始播放视频等等。</p>
+<h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p>CDN 的原理是尽可能的在各个地方分布机房缓存数据，这样即使我们的根服务器远在国外，在国内的用户也可以通过国内的机房迅速加载资源。</p>
+<p>因此，我们可以将静态资源尽量使用 CDN 加载，由于浏览器对于单个域名有并发请求上限，可以考虑使用多个 CDN 域名。并且对于 CDN 加载静态资源需要注意 CDN 域名要与主站不同，否则每次请求都会带上主站的 Cookie，平白消耗流量。</p>
+<h1 id="压缩传输"><a href="#压缩传输" class="headerlink" title="压缩传输"></a>压缩传输</h1><p>gizp传输</p>
+
     
 
     
@@ -275,6 +316,17 @@
     
     
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
 
@@ -338,6 +390,15 @@
 
 
 <nav id="article-nav">
+  
+    <a href="/2020/05/25/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          跨域问题
+        
+      </div>
+    </a>
   
   
     <a href="/2020/05/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" id="article-nav-older" class="article-nav-link-wrap">

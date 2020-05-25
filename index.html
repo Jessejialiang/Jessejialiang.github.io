@@ -589,6 +589,137 @@
 
 
   
+    <article id="post-对数组字符串操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/05/25/%E5%AF%B9%E6%95%B0%E7%BB%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/" target="_blank">对数组操作的函数</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/05/25/%E5%AF%B9%E6%95%B0%E7%BB%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+        <time datetime="2020-05-25T08:19:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="对数组操作的函数"><a href="#对数组操作的函数" class="headerlink" title="对数组操作的函数"></a>对数组操作的函数</h1><h2 id="1-shift"><a href="#1-shift" class="headerlink" title="1.shift()"></a>1.shift()</h2><p>作用：删除原数组第一项，并返回删除元素的值：如果数组为空则返回undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a  = [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a.shift())<span class="comment">// 返回结果为 3</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-unshift"><a href="#2-unshift" class="headerlink" title="2.unshift()"></a>2.unshift()</h2><p>作用是将参数添加到原数组开头，并返回数组的长度。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="built_in">console</span>.log(b.unshift(<span class="number">3</span>,<span class="number">4</span>))<span class="comment">//打印出5</span></span><br><span class="line"><span class="built_in">console</span>.log(b)<span class="comment">//打印为[3,4,4,5,6]</span></span><br></pre></td></tr></table></figure>
+
+<p>注意再IE6.0下测试返回值总为undefined，FF2.0测试返回值为5，所以这个方法不可靠，需要用返回值可用splice代替本方法使用</p>
+<h2 id="3-pop"><a href="#3-pop" class="headerlink" title="3.pop()"></a>3.pop()</h2><p>作用：删除原数组的最后一项，并返回删除元素的值，如果数组为空则返回undefined。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.pop();</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//[3,4]</span></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-push"><a href="#4-push" class="headerlink" title="4.push()"></a>4.push()</h2><p>作用：将参数添加到原数组末尾，并返回数组长度。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.push(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//[3,4,5,3,4]</span></span><br><span class="line"><span class="built_in">console</span>.log(b);<span class="comment">//5</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-concat"><a href="#5-concat" class="headerlink" title="5.concat()"></a>5.concat()</h2><p>作用：返回一个<strong>新的数组</strong>，是将参数添加到原数组种构成的,并不会改变原来的数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//concat()参数为数组</span></span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> c = a.concat(b);</span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line"><span class="comment">//concat()参数为number</span></span><br><span class="line"><span class="keyword">var</span> d = a.concat(<span class="number">3</span>,<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(d);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="6-splice-start-deleCount-val1-val2"><a href="#6-splice-start-deleCount-val1-val2" class="headerlink" title="6.splice(start,deleCount,val1,val2)"></a>6.splice(start,deleCount,val1,val2)</h2><p>作用：splice(start,deleCount,val1,val2):从start位置开始删除deleteCount项，并从该位置起插入val1,val2.<strong>返回被删除的值。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">7</span>,<span class="number">9</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"b的值为"</span>+b);</span><br><span class="line"><span class="keyword">var</span> c = a.splice(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(c);<span class="comment">//同shift（）</span></span><br><span class="line"><span class="keyword">var</span> b = a.splice(<span class="number">0</span>,<span class="number">0</span>,<span class="number">-2</span>,<span class="number">-1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(b)<span class="comment">//同unshift</span></span><br><span class="line"><span class="keyword">var</span> b = a.splice(a.length<span class="number">-1</span>,<span class="number">1</span>)<span class="comment">//同pop</span></span><br><span class="line">a.splice(a.length,<span class="number">0</span>,<span class="number">6</span>,<span class="number">7</span>);</span><br><span class="line"><span class="keyword">var</span> b = a.length;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="7-reverse"><a href="#7-reverse" class="headerlink" title="7.reverse()"></a>7.reverse()</h2><p>作用：将数组反序,改变原数组，改变原来数组，返回结果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.reverse();<span class="comment">//a:[4，3，2，1]b:[4,3,2,1]</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="8-sort"><a href="#8-sort" class="headerlink" title="8.sort()"></a>8.sort()</h2><p>作用：按指定的参数对数组进行排序,改变原来数组，返回结果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.sort();</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="9-slice-start-end"><a href="#9-slice-start-end" class="headerlink" title="9.slice(start,end);"></a>9.slice(start,end);</h2><p>作用：返回从原来数组种指定开始下标到结束下标之间的项组成的新的数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> b = a.slice(<span class="number">2</span>,<span class="number">5</span>)<span class="comment">//a:[1,2,3,4,5] b:[3,4,5]</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="10-join-separator"><a href="#10-join-separator" class="headerlink" title="10.join(separator)"></a>10.join(separator)</h2><p>作用：将数组的元素组成一个字符串，以separator为分割符，省略的话则用默认用逗号分隔符。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> b = a.join()<span class="comment">//a:[1,2,3,4,5] b:12345</span></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/05/25/%E5%AF%B9%E6%95%B0%E7%BB%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-性能优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -957,163 +1088,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2020/05/25/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%EF%BC%8C%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javascript基本类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2020/05/24/javascript%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" target="_blank">javascript基本类型</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2020/05/24/javascript%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-        <time datetime="2020-05-24T08:00:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="javascript基本类型"><a href="#javascript基本类型" class="headerlink" title="javascript基本类型"></a>javascript基本类型</h1><h3 id="分为两种原始数据类型和复杂数据类型"><a href="#分为两种原始数据类型和复杂数据类型" class="headerlink" title="分为两种原始数据类型和复杂数据类型"></a>分为两种原始数据类型和复杂数据类型</h3><p>原始数据类型：undefind null boolean string number symbol</p>
-<p>复杂数据类型：object (array,Sring….)(这里的String指代的是String对象：new String())</p>
-<h2 id="常见判断基本数据类型"><a href="#常见判断基本数据类型" class="headerlink" title="常见判断基本数据类型"></a>常见判断基本数据类型</h2><h3 id="typeof-and-instanceof"><a href="#typeof-and-instanceof" class="headerlink" title="typeof and instanceof"></a>typeof and instanceof</h3><h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><p>1.对于原始数据类型除了null以外都正确输出</p>
-<p>而null则会输出object</p>
-<p>原因：历史遗留原因：null :000000，而对于object开头都是000,所以null会被识别为对象</p>
-<p>2.对于object来说除了function以外都会输出object</p>
-<p>function会输出function</p>
-<p>如果判断具体是什么复杂数据类型呢？</p>
-<h2 id="1-instanceof"><a href="#1-instanceof" class="headerlink" title="1.instanceof"></a>1.instanceof</h2><p>instanceof内部是通过原型链和自身调用形成的循环的方法判断的</p>
-<h4 id="instanceof主要是针对复杂数据类型的，返回的是布尔类型"><a href="#instanceof主要是针对复杂数据类型的，返回的是布尔类型" class="headerlink" title="instanceof主要是针对复杂数据类型的，返回的是布尔类型"></a>instanceof主要是针对复杂数据类型的，返回的是布尔类型</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj <span class="keyword">instanceof</span> <span class="built_in">Object</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="如何实现一个instanceof"><a href="#如何实现一个instanceof" class="headerlink" title="如何实现一个instanceof?"></a>如何实现一个instanceof?</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myInstanceof</span>(<span class="params">left,right</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( <span class="keyword">typeof</span>(right)!==<span class="string">'object'</span>||<span class="keyword">typeof</span>(right)!==<span class="string">'function'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> prototype = right.prototype;</span><br><span class="line">    left = left._proto_;</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(left==<span class="literal">null</span>||left==undefind)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(left = prototype)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">        left = left._proto_</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="2-通过具体的类型判断原始数据类型和复杂数据类型"><a href="#2-通过具体的类型判断原始数据类型和复杂数据类型" class="headerlink" title="2.通过具体的类型判断原始数据类型和复杂数据类型"></a>2.通过具体的类型判断原始数据类型和复杂数据类型</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="built_in">Object</span>.prototype.toString.call(<span class="string">'1'</span>)<span class="comment">//"[object String]"</span></span><br></pre></td></tr></table></figure>
-
-<p>只需判断str.slice(8,-1)是否为我们想要的类型即可</p>
-<h1 id="类型转化"><a href="#类型转化" class="headerlink" title="类型转化"></a>类型转化</h1><p>类型转化一般分为三种：</p>
-<p>转化为布尔值</p>
-<p>转化为数字</p>
-<p>转化为字符串</p>
-<h3 id="转Boolean"><a href="#转Boolean" class="headerlink" title="转Boolean"></a>转Boolean</h3><p>在条件判断时，除了 <code>undefined</code>， <code>null</code>， <code>false</code>， <code>NaN</code>， <code>&#39;&#39;</code>， <code>0</code>， <code>-0</code>，其他所有值都转为 <code>true</code>，包括所有对象。</p>
-<h4 id="转数字"><a href="#转数字" class="headerlink" title="转数字"></a>转数字</h4><p>分为下列情况：</p>
-<p>string:’1’—&gt;1,’a’—&gt;NaN</p>
-<p>空数组：0，其他为NaN</p>
-<p>boolean:true—&gt;1 false—&gt;0</p>
-<p>除了数组外的复杂数据类型：NaN</p>
-<p>symbol：报错</p>
-<h2 id="对象转化为原始数据类型"><a href="#对象转化为原始数据类型" class="headerlink" title="对象转化为原始数据类型"></a>对象转化为原始数据类型</h2><ul>
-<li>如果已经是原始类型了，那就不需要转换了</li>
-<li>如果需要转字符串类型就调用 <code>x.toString()</code>，转换为基础类型的话就返回转换的值。不是字符串类型的话就先调用 <code>valueOf</code>，结果不是基础类型的话再调用 <code>toString</code></li>
-<li>调用 <code>x.valueOf()</code>，如果转换为基础类型，就返回转换的值</li>
-<li>如果都没有返回原始类型，就会报错</li>
-</ul>
-<p>当然你也可以重写 <code>Symbol.toPrimitive</code> ，该方法在转原始类型时调用优先级最高。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; &#123;</span><br><span class="line">  valueOf() &#123;</span><br><span class="line">    return 0</span><br><span class="line">  &#125;,</span><br><span class="line">  toString() &#123;</span><br><span class="line">    return &#39;1&#39;</span><br><span class="line">  &#125;,</span><br><span class="line">  [Symbol.toPrimitive]() &#123;</span><br><span class="line">    return 2</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">1 + a &#x2F;&#x2F; &#x3D;&gt; 3</span><br></pre></td></tr></table></figure>
-
-<p>加法运算符不同于其他几个运算符，它有以下几个特点：</p>
-<ul>
-<li>运算中其中一方为字符串，那么就会把另一方也转换为字符串</li>
-<li>如果一方不是字符串或者数字，那么会将它转换为数字或者字符串</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 + &#39;1&#39; &#x2F;&#x2F; &#39;11&#39;</span><br><span class="line">true + true &#x2F;&#x2F; 2</span><br><span class="line">4 + [1,2,3] &#x2F;&#x2F; &quot;41,2,3&quot;</span><br></pre></td></tr></table></figure>
-
-<p>如果你对于答案有疑问的话，请看解析：</p>
-<ul>
-<li>对于第一行代码来说，触发特点一，所以将数字 <code>1</code> 转换为字符串，得到结果 <code>&#39;11&#39;</code></li>
-<li>对于第二行代码来说，触发特点二，所以将 <code>true</code> 转为数字 <code>1</code></li>
-<li>对于第三行代码来说，触发特点二，所以将数组通过 <code>toString</code> 转为字符串 <code>1,2,3</code>，得到结果 <code>41,2,3</code></li>
-</ul>
-<p>另外对于加法还需要注意这个表达式 <code>&#39;a&#39; + + &#39;b&#39;</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#39;a&#39; + + &#39;b&#39; &#x2F;&#x2F; -&gt; &quot;aNaN&quot;</span><br></pre></td></tr></table></figure>
-
-<p>因为 <code>+ &#39;b&#39;</code> 等于 <code>NaN</code>，所以结果为 <code>&quot;aNaN&quot;</code>，你可能也会在一些代码中看到过 <code>+ &#39;1&#39;</code> 的形式来快速获取 <code>number</code> 类型。</p>
-<p>减法运算符（除了加法外都会转化为数字）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span><span class="number">-1</span>)<span class="comment">//0</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="和-的区别"><a href="#和-的区别" class="headerlink" title="==和===的区别"></a>==和===的区别</h1><p>==与===的不同：==不同类型还会转化成相同类型比较，而===只要类型和值都要相同两者才会true</p>
-<p>==两者比较的过程：</p>
-<p>1.如果两者类型相同，直接比较值相不相同</p>
-<p>2.如果类型不同则先转化类型再比较</p>
-<p>3.先判断两者是否为undefind和null，如果两者都是则直接为true</p>
-<p>4.判断两者是否为string和number,如果是则把string转化为number</p>
-<p>5.判断其中一方是否为boolean，如果是就直接把boolean转化为数字</p>
-<p>6.判断一方是否为object,另一方是否为string,number，symbol时，把对象转化为原始数据类型。</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2020/05/24/javascript%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
     </p>
     
 

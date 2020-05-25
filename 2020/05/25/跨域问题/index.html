@@ -10,13 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="article">
+  <meta name="description" content="跨域问题同源策略：同域名，同协议，同端口 JSONP123456789101112131415161718192021222324function jsonp(url,data,callback,success)&amp;#123;    let str &#x3D; &#39;&#39;;    if(data)&amp;#123;        str &#x3D; &#39;?&#39;        for(let item in data)&amp;#123;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="跨域问题">
 <meta property="og:url" content="http://jesseleung.top/2020/05/25/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="jesseLeung个人博客">
+<meta property="og:description" content="跨域问题同源策略：同域名，同协议，同端口 JSONP123456789101112131415161718192021222324function jsonp(url,data,callback,success)&amp;#123;    let str &#x3D; &#39;&#39;;    if(data)&amp;#123;        str &#x3D; &#39;?&#39;        for(let item in data)&amp;#123;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-25T08:19:44.000Z">
-<meta property="article:modified_time" content="2020-05-25T08:19:44.034Z">
+<meta property="article:modified_time" content="2020-05-25T12:48:35.363Z">
 <meta property="article:author" content="jesseLeung">
 <meta name="twitter:card" content="summary">
   
@@ -223,7 +225,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">0字</span>
+      <span class="post-count">96字</span>
     </span>
   </span>
 
@@ -243,7 +245,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h1><p>同源策略：同域名，同协议，同端口</p>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">url,data,callback,success</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">if</span>(data)&#123;</span><br><span class="line">        str = <span class="string">'?'</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> item <span class="keyword">in</span> data)&#123;</span><br><span class="line">            <span class="keyword">let</span> _str  = <span class="string">''</span>;</span><br><span class="line">            _str=<span class="string">`<span class="subst">$&#123;item&#125;</span>=<span class="subst">$&#123;data[item]&#125;</span>`</span></span><br><span class="line">            str = str+_str+<span class="string">'&amp;'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        str = str.slice(<span class="number">0</span>,<span class="number">-1</span>);</span><br><span class="line">        url = url+str;</span><br><span class="line">        <span class="built_in">console</span>.log(url)</span><br><span class="line">        <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">        script.src = url;</span><br><span class="line">         script.async = <span class="literal">true</span>;</span><br><span class="line">        <span class="built_in">window</span>[callback] = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">            success&amp;&amp;success(data)</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="built_in">console</span>.log(script)</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(script)</span><br><span class="line">        <span class="built_in">console</span>.log(script)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     
 
     

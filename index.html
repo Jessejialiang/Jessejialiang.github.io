@@ -195,6 +195,80 @@
             
 
   
+    <article id="post-README" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/05/25/README/" target="_blank">README</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/05/25/README/" class="archive-article-date">
+        <time datetime="2020-05-25T06:21:43.585Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="newWord"><a href="#newWord" class="headerlink" title="newWord"></a>newWord</h1>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/05/25/README/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-new-的实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -224,7 +298,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <h1 id="new-的实现"><a href="#new-的实现" class="headerlink" title="new 的实现"></a>new 的实现</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mynew</span>(<span class="params">fun</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> obj = &#123;&#125;;</span><br><span class="line">    obj._proto_ = fun.prototype;</span><br><span class="line">    <span class="keyword">let</span> result = fun.call(obj)</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span>(result)==<span class="string">'object'</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> obj</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
     
 
     
@@ -236,6 +312,17 @@
     
     
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
     <p class="article-more-link">

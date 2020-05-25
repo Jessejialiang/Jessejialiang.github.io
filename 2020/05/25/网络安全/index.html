@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://jesseleung.top">
-  <title>Archives | jesseLeung个人博客</title>
+  <title>网络安全 | jesseLeung个人博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="jesseLeung个人博客">
-<meta property="og:url" content="http://jesseleung.top/archives/index.html">
+  <meta name="description" content="网络安全XSS攻击原理：攻击者想把代码嵌套到网页上 大体可以分为两种：持久性和非持久性 持久性持久性一般是指写入数据库代码 持久型也就是攻击的代码被服务端写入进数据库中，这种攻击危害性很大，因为如果网站访问量很大的话，就会导致大量正常访问页面的用户都受到攻击。 这种情况如果前后端没有做好防御的话，这段评论就会被存储到数据库中，这样每个打开该页面的用户都会被攻击到。 非持久型相比于前者危害就小的多了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络安全">
+<meta property="og:url" content="http://jesseleung.top/2020/05/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/index.html">
 <meta property="og:site_name" content="jesseLeung个人博客">
+<meta property="og:description" content="网络安全XSS攻击原理：攻击者想把代码嵌套到网页上 大体可以分为两种：持久性和非持久性 持久性持久性一般是指写入数据库代码 持久型也就是攻击的代码被服务端写入进数据库中，这种攻击危害性很大，因为如果网站访问量很大的话，就会导致大量正常访问页面的用户都受到攻击。 这种情况如果前后端没有做好防御的话，这段评论就会被存储到数据库中，这样每个打开该页面的用户都会被攻击到。 非持久型相比于前者危害就小的多了">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-25T06:26:42.000Z">
+<meta property="article:modified_time" content="2020-05-25T07:33:22.291Z">
 <meta property="article:author" content="jesseLeung">
 <meta name="twitter:card" content="summary">
   
@@ -188,74 +192,147 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-网络安全" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/05/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="archive-article-date">
-        <time datetime="2020-05-25T07:32:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/05/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" target="_blank">性能优化</a>
   
+    <h1 class="article-title" itemprop="name">
+      网络安全
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2020/05/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="archive-article-date">
         <time datetime="2020-05-25T06:26:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/05/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" target="_blank">网络安全</a>
   
-    </h1>
-  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.6k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><p>原理：攻击者想把代码嵌套到网页上</p>
+<p>大体可以分为两种：持久性和非持久性</p>
+<h3 id="持久性"><a href="#持久性" class="headerlink" title="持久性"></a>持久性</h3><p>持久性一般是指写入数据库代码</p>
+<p>持久型也就是攻击的代码被服务端写入进<strong>数据库</strong>中，这种攻击危害性很大，因为如果网站访问量很大的话，就会导致大量正常访问页面的用户都受到攻击。</p>
+<p>这种情况如果前后端没有做好防御的话，这段评论就会被存储到数据库中，这样每个打开该页面的用户都会被攻击到。</p>
+<p>非持久型相比于前者危害就小的多了，一般通过<strong>修改 URL 参数</strong>的方式加入攻击代码，诱导用户访问链接从而进行攻击。</p>
+<p>举个例子，如果页面需要从 URL 中获取某些参数作为内容的话，不经过过滤就会导致攻击代码被执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- http:&#x2F;&#x2F;www.domain.com?name&#x3D;&lt;script&gt;alert(1)&lt;&#x2F;script&gt; --&gt;</span><br><span class="line">&lt;div&gt;&#123;&#123;name&#125;&#125;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是对于这种攻击方式来说，如果用户使用 Chrome 这类浏览器的话，浏览器就能自动帮助用户防御攻击。但是我们不能因此就不防御此类攻击了，因为我不能确保用户都使用了该类浏览器。</p>
+<h2 id="防御两种方法"><a href="#防御两种方法" class="headerlink" title="防御两种方法"></a>防御两种方法</h2><p>1.转义字符：就是对于用户的输入进行特殊的转义：即对于一些&lt;&gt;…等等进行转义。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">escape</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">    str = str.replace(<span class="regexp">/&amp;/g</span>,<span class="string">'amp;'</span>)</span><br><span class="line">    str = str.replace(<span class="regexp">/&lt;/g</span>, <span class="string">'&amp;lt;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/&gt;/g</span>, <span class="string">'&amp;gt;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/"/g</span>, <span class="string">'&amp;quto;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/'/g</span>, <span class="string">'&amp;#39;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/`/g</span>, <span class="string">'&amp;#96;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/\//g</span>, <span class="string">'&amp;#x2F;'</span>)</span><br><span class="line">  <span class="keyword">return</span> str</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>对于富文本编辑来说转义不太行，通常采用白名单CSP</p>
+<p>2.CSP：CSP 本质上就是建立白名单，开发者明确告诉浏览器哪些外部资源可以加载和执行。我们只需要配置规则，如何拦截是由浏览器自己实现的。我们可以通过这种方式来尽量减少 XSS 攻击。</p>
+<p>通常可以通过两种方式来开启 CSP：</p>
+<ol>
+<li>设置 HTTP Header 中的 <code>Content-Security-Policy</code></li>
+<li>设置 <code>meta</code> 标签的方式 <code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot;&gt;</code></li>
+</ol>
+<p>当然可以设置的属性远不止这些，你可以通过查阅 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank" rel="noopener">文档</a> 的方式来学习，这里就不过多赘述其他的属性了。</p>
+<p>对于这种方式来说，只要开发者配置了正确的规则，那么即使网站存在漏洞，攻击者也不能执行它的攻击代码，并且 CSP 的兼容性也不错。</p>
+<a id="more"></a>
+
+<h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2><p>原理：CSRF中文名为跨站请求伪造，攻击者构建一个后端请求地址，诱导用户点击或者通过某种途径自动发请求，如果用户在登录状态的时候，后台会误以为是用户在操作，一般攻击者都是携带着cookie去攻击的，所以我们可以防止cookie让第三方访问到。</p>
+<h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h3><p>防范 CSRF 攻击可以遵循以下几种规则：</p>
+<ol>
+<li>Get 请求不对数据进行修改</li>
+<li>不让第三方网站访问到用户 Cookie</li>
+<li>阻止第三方网站请求接口</li>
+<li>请求时附带验证信息，比如验证码或者 Token</li>
+</ol>
+<h3 id="samesite"><a href="#samesite" class="headerlink" title="samesite"></a>samesite</h3><p>可以对cookie设置samesite属性，该属性表示为cookie不随着跨域请求发送，可以减少CSRF攻击，但是兼容性不足。</p>
+<h3 id="验证referer"><a href="#验证referer" class="headerlink" title="验证referer"></a>验证referer</h3><p>可以通过设置验证referer来判断请求是否为第三方网络发起的。</p>
+<h3 id="Token"><a href="#Token" class="headerlink" title="Token"></a>Token</h3><p>生成TOKEN验证</p>
+<h2 id="点击挟持"><a href="#点击挟持" class="headerlink" title="点击挟持"></a>点击挟持</h2><p>点击劫持是一种视觉欺骗的攻击手段。攻击者将需要攻击的网站通过 <code>iframe</code> 嵌套的方式嵌入自己的网页中，并将 <code>iframe</code> 设置为透明，在页面中透出一个按钮诱导用户点击。</p>
+<p>对于这种攻击方式，推荐防御的方法有两种。</p>
+<h3 id="X-FRAME-OPTIONS"><a href="#X-FRAME-OPTIONS" class="headerlink" title="X-FRAME-OPTIONS"></a>X-FRAME-OPTIONS</h3><p><code>X-FRAME-OPTIONS</code> 是一个 HTTP 响应头，在现代浏览器有一个很好的支持。这个 HTTP 响应头 就是为了防御用 <code>iframe</code> 嵌套的点击劫持攻击。</p>
+<p>该响应头有三个值可选，分别是</p>
+<ul>
+<li><code>DENY</code>，表示页面不允许通过 <code>iframe</code> 的方式展示</li>
+<li><code>SAMEORIGIN</code>，表示页面可以在相同域名下通过 <code>iframe</code> 的方式展示</li>
+<li><code>ALLOW-FROM</code>，表示页面可以在指定来源的 <code>iframe</code> 中展示</li>
+</ul>
+<h3 id="JS-防御"><a href="#JS-防御" class="headerlink" title="JS 防御"></a>JS 防御</h3><p>对于某些远古浏览器来说，并不能支持上面的这种方式，那我们只有通过 JS 的方式来防御点击劫持了。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span> <span class="attr">id</span>=<span class="string">"click-jack"</span>&gt;</span></span><br><span class="line">    html &#123;</span><br><span class="line">      display: none !important;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    if (self == top) &#123;</span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> style = <span class="built_in">document</span>.getElementById(<span class="string">'click-jack'</span>)</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.removeChild(style)</span></span><br><span class="line"><span class="actionscript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line">      top.location = self.location</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以上代码的作用就是当通过 <code>iframe</code> 的方式加载页面时，攻击者的网页直接不显示所有内容了。</p>
+<h2 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h2><blockquote>
+<p>涉及面试题：什么是中间人攻击？如何防范中间人攻击？</p>
+</blockquote>
+<p>中间人攻击是攻击方同时与服务端和客户端建立起了连接，并让对方认为连接是安全的，但是实际上整个通信过程都被攻击者控制了。攻击者不仅能获得双方的通信信息，还能修改通信信息。</p>
+<p>通常来说不建议使用公共的 Wi-Fi，因为很可能就会发生中间人攻击的情况。如果你在通信的过程中涉及到了某些敏感信息，就完全暴露给攻击方了。</p>
+<p>当然防御中间人攻击其实并不难，只需要增加一个安全通道来传输信息。HTTPS 就可以用来防御中间人攻击，但是并不是说使用了 HTTPS 就可以高枕无忧了，因为如果你没有完全关闭 HTTP 访问的话，攻击方可以通过某些方式将 HTTPS 降级为 HTTP 从而实现中间人攻击。</p>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          jesseLeung
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://jesseleung.top/2020/05/25/网络安全/" title="网络安全" target="_blank">http://jesseleung.top/2020/05/25/网络安全/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -268,296 +345,114 @@
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://jesseleung.top/2020/05/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/05/25/new-%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
-        <time datetime="2020-05-24T17:41:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/2020/05/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          性能优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/25/new-%E7%9A%84%E5%AE%9E%E7%8E%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">new 的实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/05/25/new-%E7%9A%84%E5%AE%9E%E7%8E%B0/" target="_blank">new 的实现</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/05/25/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%EF%BC%8C%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" class="archive-article-date">
-        <time datetime="2020-05-24T16:19:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/05/25/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%EF%BC%8C%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/" target="_blank">函数防抖，函数节流</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/05/24/javascript%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-        <time datetime="2020-05-24T08:00:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/05/24/javascript%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" target="_blank">javascript基本类型</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/05/24/%E6%89%8B%E6%92%95call,apply,bind/" class="archive-article-date">
-        <time datetime="2020-05-24T06:42:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/05/24/%E6%89%8B%E6%92%95call,apply,bind/" target="_blank">手撕call,apply,bind</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/05/22/foo%E5%8F%91%E7%9A%84%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/" class="archive-article-date">
-        <time datetime="2020-05-22T11:25:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/05/22/foo%E5%8F%91%E7%9A%84%E5%89%8D%E7%AB%AF%E9%97%AE%E9%A2%98/" target="_blank">foo发的前端问题</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/05/22/http,http2,%E6%B8%B8%E8%A7%88%E5%99%A8/" class="archive-article-date">
-        <time datetime="2020-05-21T18:49:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/05/22/http,http2,%E6%B8%B8%E8%A7%88%E5%99%A8/" target="_blank">http,http2,游览器</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2020/05/18/hello-world/" class="archive-article-date">
-        <time datetime="2020-05-18T15:39:38.842Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2020/05/18/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -598,8 +493,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

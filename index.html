@@ -195,7 +195,7 @@
             
 
   
-    <article id="post-README" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-性能优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -203,7 +203,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2020/05/25/README/" target="_blank">README</a>
+	  <a class="article-title" href="/2020/05/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" target="_blank">性能优化</a>
   
     </h1>
   
@@ -211,8 +211,8 @@
 
   
   
-<a href="/2020/05/25/README/" class="archive-article-date">
-        <time datetime="2020-05-25T06:21:43.585Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+<a href="/2020/05/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" class="archive-article-date">
+        <time datetime="2020-05-25T07:32:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
 </a>
 
   
@@ -224,7 +224,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="newWord"><a href="#newWord" class="headerlink" title="newWord"></a>newWord</h1>
+    
     
 
     
@@ -239,7 +239,118 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2020/05/25/README/">展开全文 >></a>
+      <a class="article-more-a" href="/2020/05/25/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-网络安全" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2020/05/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" target="_blank">网络安全</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2020/05/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="archive-article-date">
+        <time datetime="2020-05-25T06:26:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h1><h2 id="XSS攻击"><a href="#XSS攻击" class="headerlink" title="XSS攻击"></a>XSS攻击</h2><p>原理：攻击者想把代码嵌套到网页上</p>
+<p>大体可以分为两种：持久性和非持久性</p>
+<h3 id="持久性"><a href="#持久性" class="headerlink" title="持久性"></a>持久性</h3><p>持久性一般是指写入数据库代码</p>
+<p>持久型也就是攻击的代码被服务端写入进<strong>数据库</strong>中，这种攻击危害性很大，因为如果网站访问量很大的话，就会导致大量正常访问页面的用户都受到攻击。</p>
+<p>这种情况如果前后端没有做好防御的话，这段评论就会被存储到数据库中，这样每个打开该页面的用户都会被攻击到。</p>
+<p>非持久型相比于前者危害就小的多了，一般通过<strong>修改 URL 参数</strong>的方式加入攻击代码，诱导用户访问链接从而进行攻击。</p>
+<p>举个例子，如果页面需要从 URL 中获取某些参数作为内容的话，不经过过滤就会导致攻击代码被执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- http:&#x2F;&#x2F;www.domain.com?name&#x3D;&lt;script&gt;alert(1)&lt;&#x2F;script&gt; --&gt;</span><br><span class="line">&lt;div&gt;&#123;&#123;name&#125;&#125;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>但是对于这种攻击方式来说，如果用户使用 Chrome 这类浏览器的话，浏览器就能自动帮助用户防御攻击。但是我们不能因此就不防御此类攻击了，因为我不能确保用户都使用了该类浏览器。</p>
+<h2 id="防御两种方法"><a href="#防御两种方法" class="headerlink" title="防御两种方法"></a>防御两种方法</h2><p>1.转义字符：就是对于用户的输入进行特殊的转义：即对于一些&lt;&gt;…等等进行转义。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">escape</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">    str = str.replace(<span class="regexp">/&amp;/g</span>,<span class="string">'amp;'</span>)</span><br><span class="line">    str = str.replace(<span class="regexp">/&lt;/g</span>, <span class="string">'&amp;lt;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/&gt;/g</span>, <span class="string">'&amp;gt;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/"/g</span>, <span class="string">'&amp;quto;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/'/g</span>, <span class="string">'&amp;#39;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/`/g</span>, <span class="string">'&amp;#96;'</span>)</span><br><span class="line">  str = str.replace(<span class="regexp">/\//g</span>, <span class="string">'&amp;#x2F;'</span>)</span><br><span class="line">  <span class="keyword">return</span> str</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>对于富文本编辑来说转义不太行，通常采用白名单CSP</p>
+<p>2.CSP：CSP 本质上就是建立白名单，开发者明确告诉浏览器哪些外部资源可以加载和执行。我们只需要配置规则，如何拦截是由浏览器自己实现的。我们可以通过这种方式来尽量减少 XSS 攻击。</p>
+<p>通常可以通过两种方式来开启 CSP：</p>
+<ol>
+<li>设置 HTTP Header 中的 <code>Content-Security-Policy</code></li>
+<li>设置 <code>meta</code> 标签的方式 <code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot;&gt;</code></li>
+</ol>
+<p>当然可以设置的属性远不止这些，你可以通过查阅 <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy" target="_blank" rel="noopener">文档</a> 的方式来学习，这里就不过多赘述其他的属性了。</p>
+<p>对于这种方式来说，只要开发者配置了正确的规则，那么即使网站存在漏洞，攻击者也不能执行它的攻击代码，并且 CSP 的兼容性也不错。</p>
+    
+    <a class="article-more-a" href="/2020/05/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/面经整理//" class="article-tag-list-link color5">面经整理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2020/05/25/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">展开全文 >></a>
     </p>
     
 
